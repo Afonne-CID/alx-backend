@@ -1,3 +1,6 @@
+#!/usr/bin/env python3
+'''Pagination class
+'''
 import csv
 import math
 from typing import List, Tuple
@@ -18,7 +21,7 @@ class Server:
     DATA_FILE = "Popular_Baby_Names.csv"
 
     def __init__(self):
-        '''Initializes a new Server instance
+        '''Initializes a new Server instance.
         '''
         self.__dataset = None
 
