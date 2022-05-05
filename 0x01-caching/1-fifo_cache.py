@@ -24,7 +24,6 @@ class FIFOCache(BaseCaching):
                 self.queue.remove(key)
             elif self.is_full():
                 self.evict()
-                print('DISCARD: {}'.format(key))
             self.queue.append(key)
             self.cache_data[key] = item
 
@@ -37,9 +36,11 @@ class FIFOCache(BaseCaching):
         '''Checks if # of items in `self.cache_data`
            is higher than BaseCaching.MAX_ITMES
         '''
-        return len(self.cache_data) > self.MAX_ITEMS
+        return len(self.cache_data) >= self.MAX_ITEMS
 
     def evict(self):
+        '''Pops off the first item and prints DISCARD
+        '''
         popped = self.queue.popleft()
         del self.cache_data[popped]
         print('DISCARD: {}'.format(popped))
