@@ -41,6 +41,6 @@ class LIFOCache(BaseCaching):
     def evict(self):
         '''Pops off the first item and prints DISCARD
         '''
-        popped = self.queue.popleft()
+        popped = self.queue.pop()
         del self.cache_data[popped]
         print('DISCARD: {}'.format(popped))
